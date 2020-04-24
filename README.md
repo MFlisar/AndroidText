@@ -1,4 +1,4 @@
-### Text [![Release](https://jitpack.io/v/MFlisar/Text.svg)](https://jitpack.io/#MFlisar/Text)
+### Text [![Release](https://jitpack.io/v/MFlisar/AndroidText.svg)](https://jitpack.io/#MFlisar/AndroidText)
 
 **Text** is a very simple sealed class to help handling texts that can be either a string resource (`Int`) or a simply text (`String`)
 
