@@ -30,10 +30,10 @@ dependencies {
 val text1 = "Test".asText()
 val text2 = R.string.text.asText()
 
-// display in `TextView`
+// display in TextView
 text1.display(textView)
 text2.display(textView)
 
-// get string a kotlin.string
+// get string as kotlin.string
 val string1 = text1.get(context)
 val string2 = text2.get(context)
