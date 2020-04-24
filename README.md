@@ -20,7 +20,7 @@ repositories {
 2) Add the compile statement to your module's build.gradle:
 ```
 dependencies {
-	implementation 'com.github.MFlisar:Text:0.1'
+	implementation 'com.github.MFlisar:AndroidText:0.1'
 }
 ```
 
