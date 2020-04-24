@@ -1,4 +1,4 @@
-package com.michaelflisar.settings.text
+package com.michaelflisar.text
 
 import android.content.Context
 import android.os.Parcelable
