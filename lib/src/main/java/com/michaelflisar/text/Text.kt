@@ -1,7 +1,9 @@
 package com.michaelflisar.text
 
 import android.content.Context
+import android.opengl.Visibility
 import android.os.Parcelable
+import android.view.View
 import android.widget.TextView
 import kotlinx.android.parcel.Parcelize
 
@@ -24,11 +26,14 @@ sealed class Text : Parcelable {
         }
     }
 
-    fun display(tv: TextView) {
-        when (this) {
-            is String -> tv.text = text
-            is Resource -> tv.setText(res)
-            Empty -> tv.text = ""
+    fun display(tv: TextView, visibilityEmpty: Int? = null, vararg args: Any) {
+        var text = get(tv.context)
+        if (args.isNotEmpty()) {
+            text = kotlin.String.format(text, args)
+        }
+        tv.text = text
+        visibilityEmpty?.let {
+            tv.visibility = if (text.isEmpty()) it else View.VISIBLE
         }
     }
 }
