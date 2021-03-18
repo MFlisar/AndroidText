@@ -29,11 +29,14 @@ dependencies {
 ```
 val text1 = "Test".asText()
 val text2 = R.string.text.asText()
+val text3 = Text.Empty
 
 // display in TextView
 text1.display(textView)
 text2.display(textView)
+text3.display(textView)
 
 // get string as kotlin.string
 val string1 = text1.get(context)
 val string2 = text2.get(context)
+val string3 = text3.get(context)
