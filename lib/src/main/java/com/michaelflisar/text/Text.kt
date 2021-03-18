@@ -26,10 +26,10 @@ sealed class Text : Parcelable {
         }
     }
 
-    fun display(tv: TextView, visibilityEmpty: Int? = null, vararg args: Any) {
+    fun display(tv: TextView, visibilityEmpty: Int? = null, vararg args: Any?) {
         var text = get(tv.context)
         if (args.isNotEmpty()) {
-            text = kotlin.String.format(text, args)
+            text = kotlin.String.format(text, *args)
         }
         tv.text = text
         visibilityEmpty?.let {

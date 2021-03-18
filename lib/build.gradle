@@ -1,19 +1,11 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 
 group = 'com.github.MFlisar'
-
-androidExtensions {
-    experimental = true
-}
 
 android {
 
     compileSdkVersion setup.compileSdk
-
-    dataBinding.enabled = setup.enableDataBinding
-    viewBinding.enabled = setup.enableViewBinding
 
     defaultConfig {
         minSdkVersion setup.minSdk

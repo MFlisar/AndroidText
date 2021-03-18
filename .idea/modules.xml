@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Text.iml" filepath="$PROJECT_DIR$/Text.iml" group="Text" />
-      <module fileurl="file://$PROJECT_DIR$/lib/lib.iml" filepath="$PROJECT_DIR$/lib/lib.iml" group="Text/lib" />
+      <module fileurl="file://$PROJECT_DIR$/Text.iml" filepath="$PROJECT_DIR$/Text.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lib/Text.lib.iml" filepath="$PROJECT_DIR$/.idea/modules/lib/Text.lib.iml" />
     </modules>
   </component>
 </project>
