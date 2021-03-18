@@ -1,7 +1,6 @@
 package com.michaelflisar.text
 
 import android.content.Context
-import android.opengl.Visibility
 import android.os.Parcelable
 import android.view.View
 import android.widget.TextView
