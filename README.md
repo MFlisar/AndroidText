@@ -20,31 +20,29 @@ repositories {
 2) Add the compile statement to your module's build.gradle:
 ```
 dependencies {
-	implementation 'com.github.MFlisar:AndroidText:1.0'
+	implementation 'com.github.MFlisar:AndroidText:<LATEST-VERSION>'
 }
 ```
 
 ### Example
 
 ```
-val text1 = "Test".asText()
-val text2 = R.string.text.asText()
+val text1 = "Test".toText()
+val text2 = R.string.text.toText()
 val text3 = Text.Empty
-val text4: CharSequence = "" // can be a SpannableString for example
+val text4 = SpannableString("").toText() // works with any class that implements CharSequence
 
 // display in TextView/Toolbar/Button/Any
 text1.display(textView)
-text2.display(toolbar)
-text3.display(button)
-text4.display(view.context) {
+text1.display(view.context) {
 	view.text = it
 }
 
-// get string as kotlin.string
+// get string as CharSequence
 val string1 = text1.get(context)
 val string2 = text2.get(context)
 val string3 = text3.get(context)
 val string4 = text4.get(context)
 
-// check if string is empty
+// check if text is empty
 val empty = text1.isEmpty()

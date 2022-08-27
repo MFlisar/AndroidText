@@ -2,11 +2,8 @@ package com.michaelflisar.text
 
 import android.content.Context
 import android.os.Parcelable
-import android.text.Spannable
 import android.view.View
-import android.widget.Button
 import android.widget.TextView
-import android.widget.Toolbar
 import kotlinx.android.parcel.Parcelize
 
 sealed class Text : Parcelable {
@@ -34,7 +31,6 @@ sealed class Text : Parcelable {
     }
 
     fun get(context: Context): kotlin.CharSequence {
-
         return when (this) {
             is String -> text
             is Resource -> context.getString(res)
@@ -58,14 +54,14 @@ sealed class Text : Parcelable {
     }
 }
 
-fun Int.asText(): Text {
+fun Int.toText(): Text {
     return Text.Resource(this)
 }
 
-fun String.asText(): Text {
+fun String.toText(): Text {
     return Text.String(this)
 }
 
-fun CharSequence.asText(): Text {
+fun CharSequence.toText(): Text {
     return Text.CharSequence(this)
 }
