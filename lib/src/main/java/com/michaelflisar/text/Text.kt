@@ -30,16 +30,20 @@ sealed class Text : Parcelable {
         override fun isEmpty(context: Context) = true
     }
 
-    fun get(context: Context, vararg args: String): kotlin.CharSequence {
-        val charSequence = when (this) {
+    fun get(context: Context): kotlin.CharSequence {
+        return when (this) {
             is String -> text
             is Resource -> context.getString(res)
             is CharSequence -> text
             Empty -> ""
         }
+    }
+
+    fun getString(context: Context, vararg args: kotlin.String): kotlin.String {
+        val charSequence = get(context)
         return if (args.isNotEmpty()) {
             kotlin.String.format(charSequence.toString(), args)
-        } else charSequence
+        } else charSequence.toString()
     }
 
     fun display(textView: TextView) = display(textView.context) {
