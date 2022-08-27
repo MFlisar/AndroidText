@@ -32,10 +32,14 @@ val text2 = R.string.text.toText()
 val text3 = Text.Empty
 val text4 = SpannableString("").toText() // works with any class that implements CharSequence
 
-// display in TextView/Toolbar/Button/Any
+// display in TextView/Others
 text1.display(textView)
 text1.display(view.context) {
-	view.text = it
+    // use the CharSequence and apply it to the correct field of the view
+    view.text = it
+    view.title = it
+    view.subTitle = it
+	...
 }
 
 // get string as CharSequence
