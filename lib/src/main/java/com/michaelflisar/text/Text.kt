@@ -42,7 +42,7 @@ sealed class Text : Parcelable {
     fun getString(context: Context, vararg args: Any?): kotlin.String {
         val charSequence = get(context)
         return if (args.isNotEmpty()) {
-            kotlin.String.format(charSequence.toString(), args)
+            kotlin.String.format(charSequence.toString(), *args)
         } else charSequence.toString()
     }
 
