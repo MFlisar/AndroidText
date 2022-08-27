@@ -47,16 +47,13 @@ sealed class Text : Parcelable {
         textView.text = it
     }
 
-    fun display(button: Button) = display(button.context) {
-        button.text = it
-    }
-
-    fun display(toolbar: Toolbar) = display(toolbar.context) {
-        toolbar.title = it
-    }
-
     fun display(context: Context, setter: (charSequence: kotlin.CharSequence) -> Unit) {
         val charSequence = get(context)
+        setter(charSequence)
+    }
+
+    fun display(view: View, setter: (charSequence: kotlin.CharSequence) -> Unit) {
+        val charSequence = get(view.context)
         setter(charSequence)
     }
 }
