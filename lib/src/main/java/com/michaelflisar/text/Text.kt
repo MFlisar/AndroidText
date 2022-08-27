@@ -2,38 +2,62 @@ package com.michaelflisar.text
 
 import android.content.Context
 import android.os.Parcelable
+import android.text.Spannable
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
+import android.widget.Toolbar
 import kotlinx.android.parcel.Parcelize
 
 sealed class Text : Parcelable {
 
-    @Parcelize
-    class String(val text: kotlin.String) : Text()
+    abstract fun isEmpty(context: Context): Boolean
 
     @Parcelize
-    class Resource(val res: Int) : Text()
+    class String(val text: kotlin.String) : Text() {
+        override fun isEmpty(context: Context) = text.isEmpty()
+    }
 
     @Parcelize
-    object Empty : Text()
+    class CharSequence(val text: kotlin.CharSequence) : Text() {
+        override fun isEmpty(context: Context) = text.isEmpty()
+    }
 
-    fun get(context: Context): kotlin.String {
+    @Parcelize
+    class Resource(val res: Int) : Text() {
+        override fun isEmpty(context: Context) = context.getString(res).isEmpty()
+    }
+
+    @Parcelize
+    object Empty : Text() {
+        override fun isEmpty(context: Context) = true
+    }
+
+    fun get(context: Context): kotlin.CharSequence {
+
         return when (this) {
             is String -> text
             is Resource -> context.getString(res)
+            is CharSequence -> text
             Empty -> ""
         }
     }
 
-    fun display(tv: TextView, visibilityEmpty: Int? = null, vararg args: Any?) {
-        var text = get(tv.context)
-        if (args.isNotEmpty()) {
-            text = kotlin.String.format(text, *args)
-        }
-        tv.text = text
-        visibilityEmpty?.let {
-            tv.visibility = if (text.isEmpty()) it else View.VISIBLE
-        }
+    fun display(textView: TextView) = display(textView.context) {
+        textView.text = it
+    }
+
+    fun display(button: Button) = display(button.context) {
+        button.text = it
+    }
+
+    fun display(toolbar: Toolbar) = display(toolbar.context) {
+        toolbar.title = it
+    }
+
+    fun display(context: Context, setter: (charSequence: kotlin.CharSequence) -> Unit) {
+        val charSequence = get(context)
+        setter(charSequence)
     }
 }
 
@@ -43,4 +67,8 @@ fun Int.asText(): Text {
 
 fun String.asText(): Text {
     return Text.String(this)
+}
+
+fun CharSequence.asText(): Text {
+    return Text.CharSequence(this)
 }

@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Text.iml" filepath="$PROJECT_DIR$/Text.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/lib/Text.lib.iml" filepath="$PROJECT_DIR$/.idea/modules/lib/Text.lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lib/Text.lib.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/lib/Text.lib.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lib/Text.lib.main.iml" filepath="$PROJECT_DIR$/.idea/modules/lib/Text.lib.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lib/Text.lib.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/lib/Text.lib.unitTest.iml" />
     </modules>
   </component>
 </project>

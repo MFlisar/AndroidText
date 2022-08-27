@@ -1,15 +1,15 @@
 ext {
 
     setup = [
-            compileSdk       : 30,
-            minSdk           : 16,
-            targetSdk        : 30
+            compileSdk       : 32,
+            minSdk           : 21,
+            targetSdk        : 32
     ]
 
     versions = [
-            kotlinVersion  : "1.4.31",
-            gradlePlugin   : "4.1.2",
-            mavenVersion   : "2.1",
+            kotlinVersion      : "1.7.10",
+            gradlePlugin       : "7.2.1",
+            mavenVersion       : "2.1"
     ]
 
     debugSetup = [useMultiDex: false]
