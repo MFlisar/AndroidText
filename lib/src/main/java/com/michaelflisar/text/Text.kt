@@ -55,9 +55,9 @@ sealed class Text : Parcelable {
         setter(charSequence)
     }
 
-    fun display(view: View, setter: (charSequence: kotlin.CharSequence) -> Unit) {
+    fun <T: View> display(view: T, setter: (view: T, charSequence: kotlin.CharSequence) -> Unit) {
         val charSequence = get(view.context)
-        setter(charSequence)
+        setter(view, charSequence)
     }
 }
 
