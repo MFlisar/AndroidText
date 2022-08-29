@@ -4,7 +4,7 @@ import android.content.Context
 import android.os.Parcelable
 import android.view.View
 import android.widget.TextView
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 sealed class Text : Parcelable {
 
@@ -46,29 +46,37 @@ sealed class Text : Parcelable {
         } else charSequence.toString()
     }
 
-    fun display(textView: TextView) = display(textView.context) {
+    fun display(textView: TextView): kotlin.CharSequence = display(textView.context) {
         textView.text = it
     }
 
-    fun display(context: Context, setter: (charSequence: kotlin.CharSequence) -> Unit) {
+    fun display(
+        context: Context,
+        setter: (charSequence: kotlin.CharSequence) -> Unit
+    ): kotlin.CharSequence {
         val charSequence = get(context)
         setter(charSequence)
+        return charSequence
     }
 
-    fun <T: View> display(view: T, setter: (view: T, charSequence: kotlin.CharSequence) -> Unit) {
+    fun <T : View> display(
+        view: T,
+        setter: (view: T, charSequence: kotlin.CharSequence) -> Unit
+    ): kotlin.CharSequence {
         val charSequence = get(view.context)
         setter(view, charSequence)
+        return charSequence
     }
 }
 
-fun Int.toText(): Text {
+fun Int.asText(): Text {
     return Text.Resource(this)
 }
 
-fun String.toText(): Text {
+fun String.asText(): Text {
     return Text.String(this)
 }
 
-fun CharSequence.toText(): Text {
+fun CharSequence.asText(): Text {
     return Text.CharSequence(this)
 }

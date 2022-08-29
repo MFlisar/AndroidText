@@ -27,10 +27,10 @@ dependencies {
 ### Example
 
 ```
-val text1 = "Test".toText()
-val text2 = R.string.text.toText()
+val text1 = "Test".asText()
+val text2 = R.string.text.asText()
 val text3 = Text.Empty
-val text4 = SpannableString("").toText() // works with any class that implements CharSequence
+val text4 = SpannableString("").asText() // works with any class that implements CharSequence
 
 // display in TextView/Others
 text1.display(textView)
@@ -42,7 +42,7 @@ text1.display(view.context) {
 	...
 }
 
-// get string as CharSequence
+// get text as CharSequence
 val string1 = text1.get(context)
 val string2 = text2.get(context)
 val string3 = text3.get(context)
